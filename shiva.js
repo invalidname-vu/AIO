@@ -28,8 +28,8 @@ function filterBotResponse(text) {
     // Filter out Discord mentions (@everyone, @here, role mentions, user mentions)
     let filtered = text.replace(/@everyone/gi, '[REDACTED]')
                        .replace(/@here/gi, '[REDACTED]')
-                       .replace(/<@&\d+>/g, '[REDACTED]') // Role mentions
-                       .replace(/<@!?\d+>/g, '[REDACTED]'); // User mentions
+                       .replace(/<@&\d+>/g, '[REDACTED]'); // Role mentions
+                       //.replace(/<@!?\d+>/g, '[REDACTED]'); // User mentions
     
     // Filter common inappropriate words and phrases
     const inappropriateTerms = [
