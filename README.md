@@ -1,4 +1,4 @@
-![Animated Background](https://c.tenor.com/etwEEWXocTgAAAAC/tenor.gif)
+![Animated Background](https://i.ytimg.com/vi/FRIyjs102-c/maxresdefault.jpg)
 
 <h1 align="center" style="font-family: Arial, sans-serif; color: #FF6F61; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
   Smol Katheryne 1.2.2
