@@ -1,0 +1,22 @@
+{
+    "token": "",
+    "language": "en",
+    "prefix": "!",
+    "mongodbUri": "mongodb+srv://hakoo:hakoo@discordbot.nq9h3.mongodb.net/?retryWrites=true&w=majority",
+    "excessCommands": {
+        "utility": true,
+        "other": true,
+        "troll": true,
+        "economy" : true
+    },
+    "categories": {
+        "media": true,
+        "basic": true,
+        "utility": true,
+        "moderation": true,
+        "core" :true,
+        "lavalink": true,
+        "fun": true,
+        "setups": true
+    }
+}
