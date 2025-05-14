@@ -293,10 +293,8 @@ client.once('ready', async () => {
 });
 
 client.on('messageCreate', async (message) => {
-    // Ignore messages from bots
+    // Ignore messages from bots & DMss
     if (message.author.bot) return;
-    
-    // Ignore DMs
     if (!message.guild) return;
     
     // Check if this is a valid context for AI chat
@@ -321,14 +319,21 @@ client.on('messageCreate', async (message) => {
     // Case 3: Message is a reply to bot's message
     else if (message.reference && message.reference.messageId) {
         try {
-            const repliedTo = await message.channel.messages.fetch(message.reference.messageId);
-            if (repliedTo.author.id === client.user.id) {
+            const repliedTo = await message.channel.messages.fetch(message.reference.messageId)
+                .catch(error => {
+                    // Handle message not found gracefully
+                    console.log(`Could not fetch replied message: ${message.reference.messageId} - ${error.code}`);
+                    return null;
+                });
+                
+            if (repliedTo && repliedTo.author.id === client.user.id) {
                 shouldRespond = true;
                 // Use user-specific context for replies
                 contextId = `reply-${message.author.id}`;
             }
         } catch (error) {
-            console.error('Error fetching replied message:', error);
+            console.error('Unhandled error fetching replied message:', error);
+            // Don't respond if we can't verify the reply reference
         }
     }
     
