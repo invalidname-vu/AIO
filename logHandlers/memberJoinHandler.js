@@ -134,6 +134,8 @@ async function handleWelcomeChannel(member, welcomeSettings) {
         const joinDate = member.joinedAt.toDateString();
         const creationDate = user.createdAt.toDateString();
         const serverIcon = member.guild.iconURL({ format: 'png', dynamic: true, size: 256 });
+        const serverName = member.guild.name;
+        const botIcon = member.client.user.displayAvatarURL({ format: 'png', dynamic: true, size: 256 });
         
         const randomImage = getRandomImage(data.welcomeImages);
         const shortTitle = truncateUsername(`Welcome ${memberCount}${suffix}`, 15);
@@ -149,8 +151,8 @@ async function handleWelcomeChannel(member, welcomeSettings) {
         const attachment = new AttachmentBuilder(cardBuffer, { name: 'welcome.png' });
 
         const welcomeEmbed = new EmbedBuilder()
-            .setTitle("Welcome!")
-            .setDescription(`${member}, You are the **${memberCount}${suffix}** member of our server!`)
+            .setTitle(`Welcome **${serverName}**'s **${memberCount}${suffix}** member!`)
+            .setDescription(`Welcome, ${member}!\n\n✧┊ We're delighted to have you here! Please take a moment to review the server rules to ensure a smooth journey for everyone.\n\n✧┊ Feel free to explore the various channels, join discussions, and connect with fellow adventurers. If you have any questions or need assistance, don’t hesitate to ask.`)
             .setColor("#00e5ff")
             .setThumbnail(serverIcon)
             .setImage('attachment://welcome.png')
@@ -159,7 +161,7 @@ async function handleWelcomeChannel(member, welcomeSettings) {
                 { name: 'Join Date', value: joinDate, inline: true },
                 { name: 'Account Created', value: creationDate, inline: true }
             )
-            .setFooter({ text: "We're glad to have you here!", iconURL: serverIcon })
+            .setFooter({ text: "Ad astra abyssosque!✨", iconURL: botIcon })
             .setAuthor({ name: username, iconURL: user.displayAvatarURL() })
             .setTimestamp();
 
