@@ -2,10 +2,10 @@
 module.exports = {
     enabled: true, 
     lavalink: {
-        name: "GlaceYT",
-        password: "glaceyt",
-        host: "193.226.78.187",
-        port:  3543,
+        name: "JM Lite LAVALINK",
+        password: "jmlitelavalink",
+        host: "46.202.82.164",
+        port:  1027,
         secure: false
     }
 };
